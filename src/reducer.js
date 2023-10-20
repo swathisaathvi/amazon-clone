@@ -2,20 +2,6 @@ import { act } from "react-dom/test-utils";
 
 export const initialState={
     basket: [
-        // {
-        //     id: "238724",
-        //     title: "New Apple ipad pro (12.9) inch",
-        //     price: 599.98,
-        //     rating: 4,
-        //     image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg"
-        // },
-        // {
-        //     id: "325325",
-        //     title: "Watch new apple series generation 5",
-        //     price: 239.98,
-        //     rating: 3,
-        //     image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg"
-        // }
 ],
     user: null
 }

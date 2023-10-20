@@ -1,0 +1,84 @@
+.input{
+    display: flex;
+}
+
+.icon {
+    height: 2em;
+    width: 2em;
+    margin: 0px 20px;
+
+}
+
+.loginHeader {
+    background-color: #ffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 30px;
+    color: #1877f2;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 80px;
+    background: #ffff;
+    padding-bottom: 30px;
+    width: 600px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 25px
+}
+
+.txtinput {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 480px;
+    height: 80px;
+    border-radius: 6px;
+}
+
+.txtinput input {
+    height: 50px;
+    width: 350px;
+    font-size: 17px;
+    /* padding: 14px 16px;   */
+    border-color: lightgray;
+    border-radius: 6px;  
+}
+
+.forgot-password {
+    padding-left: 62px;
+    margin-top: 27px;
+    color: #797979;
+    font-size: 18px;
+}
+
+.submitBtns {
+    display: flex;
+    gap: 30px;
+    margin: 50px auto;
+}
+
+.submitBtns button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 50px;
+    color: #fff;
+    background-color: #1877f2;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
