@@ -4,8 +4,10 @@ import { FaUserAlt } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { RiLockPasswordFill } from "react-icons/ri";
 import './Login.css'
+import Registration from './Registration';
 
-// import { Modal } from 'react-responsive-modal';
+
+import { Modal } from 'react-responsive-modal';
 
 const Login = () => {
     const [open, setOpen] = useState(false);
@@ -16,16 +18,10 @@ const Login = () => {
     return (
         <div className='container'>
             <div className='loginHeader'>
-                {/* <div className='text'> */}
                 Login Here
                 <div className='underline'></div>
-                {/* </div> */}
             </div>
             <div className='inputs'>
-                {/* <div className='txtinput'>
-                    <FaUserAlt className='icon' />
-                    <input type="text" placeholder=''/>
-                </div> */}
                 <div className='txtinput'>
                     <MdEmail className='icon' />
                     <input type="email" placeholder='Email' />
@@ -47,15 +43,9 @@ const Login = () => {
                     <button onClick={onOpenModal}>SignUp</button>
                 </div>
             </div>
-            {/* <Modal open={open} onClose={onCloseModal} center>
-        <h2>Simple centered modal</h2>
-        <h2>Simple centered modal</h2>
-        <h2>Simple centered modal</h2>
-        <h2>Simple centered modal</h2>
-        <h2>Simple centered modal</h2>
-        <h2>Simple centered modal</h2>
-        <h2>Simple centered modal</h2>
-      </Modal> */}
+            <Modal styles={{ modal: { background: 'linear-gradient(#CDE7FF, white)' } }} open={open} onClose={onCloseModal} center>
+                <Registration />
+            </Modal>
         </div>
     );
 };
