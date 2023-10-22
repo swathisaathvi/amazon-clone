@@ -9,7 +9,7 @@ test('renders the Login component', () => {
     expect(screen.getByText('Login Here')).toBeTruthy();
   
     // Check if the "Email" input field is rendered
-    expect(screen.getByPlaceholderText('Emails')).toBeTruthy();
+    expect(screen.getByPlaceholderText('Email')).toBeTruthy();
   
     // Check if the "Password" input field is rendered
     expect(screen.getByPlaceholderText('Password')).toBeTruthy();
