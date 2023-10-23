@@ -4,7 +4,7 @@ import { FaUserAlt } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { RiLockPasswordFill } from "react-icons/ri";
 import './Login.css'
-import Registration from './Registration';
+import Registration from './Registration/Registration';
 
 
 import { Modal } from 'react-responsive-modal';
