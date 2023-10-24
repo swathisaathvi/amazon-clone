@@ -18,6 +18,9 @@ export const FormItems = styled.form`
     flex-direction: column;
     gap: 0.75rem;
 `
+export const MandSpan = styled.span`
+    color: red;
+`
 
 export const InputGroup = styled.div`
     display:flex;
