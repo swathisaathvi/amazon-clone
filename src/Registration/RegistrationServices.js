@@ -53,7 +53,6 @@ export const validateForm = (formData, setErrors) => {
             newErrors.newsletter = "News letter is Required";
             break;
         case !formData.agreeToTerms:
-            console.log(formData.newsletter);
             newErrors.agreeToTerms = "You must agree to the terms and conditions";
             break;
     }
