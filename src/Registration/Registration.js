@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 //Used styled component to apply the styles to this file
 import {
     ModContainer,
@@ -18,26 +18,8 @@ import {
 import useRegistrationValidation from "./useRegrationValidation/useRegistrationValidation.js";
 
 const Registration = () => {
-    const [formData, setFormData] = useState({
-        name: "",
-        gender: "",
-        dob: "",
-        phoneNumber: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-        newsletter: "no",
-        agreeToTerms: false,
-    });
-    const [errors, setErrors] = useState({});
-    const { allErrors, userData, onHandleChange } = useRegistrationValidation();
+    const { allErrors, userData, validationFunctions, onSubmitClick } = useRegistrationValidation();
     const isUserDataEmpty = Object.values(userData).some(value => value === "");
-    console.log("swa234",isUserDataEmpty)
-    console.log("swa222",userData)
-    // const isUserDataEmpty = Object.values(userData).some(
-    //     (value) => value === "" && typeof value !== "boolean"
-    //   );
-
     return (
         <ModContainer>
             <FormContainer>
@@ -49,24 +31,21 @@ const Registration = () => {
                             type="text"
                             name="name"
                             placeholder="Enter Name"
-                            onChange={(event) => onHandleChange(event)}
+                            onChange={(event) => validationFunctions.onNameChange(event.target?.value)}
                             value={userData.name}
                         />
                         {allErrors.name && <ErrorMsg>{allErrors.name}</ErrorMsg>}
                     </InputGroup>
                     <InputGroup>
-                        <label><MandSpan>*  </MandSpan>Gender</label>
+                        <label>
+                            <MandSpan>* </MandSpan>Gender
+                        </label>
                         <Select
                             name="gender"
-                            defaultValue=""
-                            onChange={(event) =>
-                                onHandleChange(event)
-                            }
+                            onChange={(event) => validationFunctions.onGenderChange(event.target.value)}
                             value={userData.gender}
                         >
-                            <option value="" disabled>
-                                Choose an option
-                            </option>
+                            <option value="" disabled>Choose an option</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="other">Other</option>
@@ -78,12 +57,9 @@ const Registration = () => {
                         <Inputitem
                             type="date"
                             name="dob"
-                            onChange={(event) =>
-                                onHandleChange(event, formData, setFormData)
-                            }
+                            onChange={(event) => validationFunctions.onDOBChange(event.target?.value)}
                             value={userData.dob}
                         />
-                        {errors.dob && <ErrorMsg>{errors.dob}</ErrorMsg>}
                     </InputGroup>
                     <InputGroup>
                         <label><MandSpan>*  </MandSpan>Phone Number</label>
@@ -91,9 +67,7 @@ const Registration = () => {
                             type="number"
                             name="phoneNumber"
                             placeholder="Enter Phone Number"
-                            onChange={(event) =>
-                                onHandleChange(event)
-                            }
+                            onChange={(event) => validationFunctions.onPhoneNumberChange(event.target?.value)}
                             value={userData.phoneNumber}
                         />
                         {allErrors.phoneNumber && <ErrorMsg>{allErrors.phoneNumber}</ErrorMsg>}
@@ -104,9 +78,7 @@ const Registration = () => {
                             type="text"
                             name="email"
                             placeholder="Enter Email"
-                            onChange={(event) =>
-                                onHandleChange(event)
-                            }
+                            onChange={(event) => validationFunctions.onEmailChange(event.target?.value)}
                             value={userData.email}
                         />
                         {allErrors.email && <ErrorMsg>{allErrors.email}</ErrorMsg>}
@@ -117,9 +89,7 @@ const Registration = () => {
                             type="password"
                             name="password"
                             placeholder="Enter Password"
-                            onChange={(event) =>
-                                onHandleChange(event)
-                            }
+                            onChange={(event) => validationFunctions.onPasswordChange(event.target?.value)}
                             value={userData.password}
                         />
                         {allErrors.password && <ErrorMsg>{allErrors.password}</ErrorMsg>}
@@ -130,9 +100,7 @@ const Registration = () => {
                             type="password"
                             name="confirmPassword"
                             placeholder="Confirm Password"
-                            onChange={(event) =>
-                                onHandleChange(event)
-                            }
+                            onChange={(event) => validationFunctions.onConfirmPwdChange(event.target?.value)}
                             value={userData.confirmPassword}
                         />
                         {allErrors.confirmPassword && <ErrorMsg>{allErrors.confirmPassword}</ErrorMsg>}
@@ -141,28 +109,24 @@ const Registration = () => {
                         <label>Subscribe to Newsletter</label>
                         <div>
                             <input
-                                type="radio"
-                                id="yes"
-                                name="newsletter"
-                                value={userData.newsletter}
-                                // checked={formData.newsletter === "yes"}
-                                onChange={(event) =>
-                                    onHandleChange(event)
-                                }
-                            />
+                            type="radio"
+                            id="yes"
+                            name="newsletter"
+                            checked={userData.newsletter === "Yes"} // Check if newsletter is "Yes"
+                            value="Yes" // Set the value to "Yes"
+                            onChange={(event) => validationFunctions.onSubNewsLtrChange(event.target.value)}
+                        />
                             <label htmlFor="yes">Yes</label>
                         </div>
                         <div>
                             <input
-                                type="radio"
-                                id="no"
-                                name="newsletter"
-                                value={userData.newsletter}
-                                // checked={formData.newsletter === "no"}
-                                onChange={(event) =>
-                                    onHandleChange(event)
-                                }
-                            />
+                            type="radio"
+                            id="no"
+                            name="newsletter"
+                            checked={userData.newsletter === "No"} // Check if newsletter is "No"
+                            value="No" // Set the value to "No"
+                            onChange={(event) => validationFunctions.onSubNewsLtrChange(event.target.value)}
+                        />
                             <label htmlFor="no">No</label>
                         </div>
                     </RadioGroup>
@@ -171,14 +135,13 @@ const Registration = () => {
                         <input
                             type="checkbox"
                             name="agreeToTerms"
-                            onChange={(event) =>
-                                onHandleChange(event)
-                            }
+                            checked={userData.agreeToTerms}
+                            onChange={(event) => validationFunctions.onAgreeToTerms(event.target?.checked)}
                             value={userData.agreeToTerms}
                         />
                     </CheckGroup>
                     {allErrors.agreeToTerms && <ErrorMsg>{allErrors.agreeToTerms}</ErrorMsg>}
-                    <Button disabled={isUserDataEmpty || !userData.agreeToTerms}>
+                    <Button disabled={isUserDataEmpty || !userData.agreeToTerms} onClick={()=>onSubmitClick(userData)}>
                         Register
                     </Button>
                 </FormItems>

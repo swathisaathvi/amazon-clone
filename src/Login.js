@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import 'react-responsive-modal/styles.css';
-import { FaUserAlt } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { RiLockPasswordFill } from "react-icons/ri";
 import './Login.css'
