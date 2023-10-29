@@ -10,8 +10,8 @@ export default function useRegistrationValidation() {
     password: "",
     confirmPassword: "",
     newsletter: "No",
-    agreeToTerms: false
-  })
+    agreeToTerms: false,
+  });
   const [allErrors, setErrors] = useState({});
 
   const validationFunctions = {
@@ -23,129 +23,111 @@ export default function useRegistrationValidation() {
     onPasswordChange,
     onConfirmPwdChange,
     onSubNewsLtrChange,
-    onAgreeToTerms
+    onAgreeToTerms,
   };
 
   // useEffect(() => {
   //   onNameChange("");
   // }, []);
 
-  function isValidEmail(email){
+  function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
   function onNameChange(Name) {
-    setUserData({...userData, name: Name});
+    setUserData({ ...userData, name: Name });
     if (Name.length === 0) {
-      setErrors({...allErrors, 
-        name: "Please Enter Username",
-      });
+      setErrors({ ...allErrors, name: "Please Enter Username" });
     } else {
-      setErrors({...allErrors, name: ""});
+      setErrors({ ...allErrors, name: "" });
     }
   }
 
   function onGenderChange(Gender) {
-    setUserData({...userData, gender: Gender});
+    setUserData({ ...userData, gender: Gender });
     if (Gender.length === 0) {
-      setErrors({...allErrors, 
-        gender: "Please select Gender",
-      });
+      setErrors({ ...allErrors, gender: "Please select Gender" });
     } else {
-      setErrors({...allErrors, gender: ""});
+      setErrors({ ...allErrors, gender: "" });
     }
   }
 
   function onDOBChange(DateOfBirth) {
-    setUserData({...userData, dob: DateOfBirth});
+    setUserData({ ...userData, dob: DateOfBirth });
     if (DateOfBirth.length === 0) {
-      setErrors({...allErrors, 
-        DateOfBirth: "Please select Date of Birth",
-      });
+      setErrors({ ...allErrors, DateOfBirth: "Please select Date of Birth" });
     } else {
-      setErrors({...allErrors, DateOfBirth: ""});
+      setErrors({ ...allErrors, DateOfBirth: "" });
     }
   }
 
   function onPhoneNumberChange(PhoneNumber) {
-    setUserData({...userData, phoneNumber: PhoneNumber});
+    setUserData({ ...userData, phoneNumber: PhoneNumber });
     if (PhoneNumber.length === 0) {
-      setErrors({...allErrors, 
-        phoneNumber: "Please Enter Phone Number",
-      });
-    } else if(PhoneNumber.length !== 10) {
-      setErrors({...allErrors, 
+      setErrors({ ...allErrors, phoneNumber: "Please Enter Phone Number" });
+    } else if (PhoneNumber.length !== 10) {
+      setErrors({
+        ...allErrors,
         phoneNumber: "Please Enter Valid Phone Number",
       });
     } else {
-      setErrors({...allErrors, phoneNumber: ""});
+      setErrors({ ...allErrors, phoneNumber: "" });
     }
   }
 
   function onEmailChange(Email) {
-    setUserData({...userData, email: Email});
+    setUserData({ ...userData, email: Email });
     if (Email.length === 0) {
-      setErrors({...allErrors, 
-        email: "Please Enter Email",
-      });
-    } else if(!isValidEmail(Email)) {
-      setErrors({...allErrors, 
-        email: "Please Enter Valid Email",
-      });
+      setErrors({ ...allErrors, email: "Please Enter Email" });
+    } else if (!isValidEmail(Email)) {
+      setErrors({ ...allErrors, email: "Please Enter Valid Email" });
     } else {
-      setErrors({...allErrors, email: ""});
+      setErrors({ ...allErrors, email: "" });
     }
   }
 
   function onPasswordChange(Password) {
-    setUserData({...userData, password: Password});
+    setUserData({ ...userData, password: Password });
     if (Password.length === 0) {
-      setErrors({...allErrors, 
-        password: "Please Enter Password",
-      });
+      setErrors({ ...allErrors, password: "Please Enter Password" });
     } else {
-      setErrors({...allErrors, password: ""});
+      setErrors({ ...allErrors, password: "" });
     }
   }
 
   function onConfirmPwdChange(Password) {
-    setUserData({...userData, confirmPassword: Password});
+    setUserData({ ...userData, confirmPassword: Password });
     if (Password.length === 0) {
-      setErrors({...allErrors, 
-        confirmPassword: "Please Enter Password",
-      });
+      setErrors({ ...allErrors, confirmPassword: "Please Enter Password" });
     } else if (Password !== userData.password) {
-      setErrors({...allErrors, 
-        confirmPassword: "Passwords does not match"
-      })
-    }
-    else {
-      setErrors({...allErrors, confirmPassword: ""});
+      setErrors({ ...allErrors, confirmPassword: "Passwords does not match" });
+    } else {
+      setErrors({ ...allErrors, confirmPassword: "" });
     }
   }
 
-  function onSubNewsLtrChange(SubNewsLtr){
-    setUserData({...userData, newsletter: SubNewsLtr});
+  function onSubNewsLtrChange(SubNewsLtr) {
+    setUserData({ ...userData, newsletter: SubNewsLtr });
   }
 
-  function onAgreeToTerms(AgreeToTerms){
-    setUserData({...userData, agreeToTerms: AgreeToTerms});
-    if(AgreeToTerms === false){
-      setErrors({...allErrors, agreeToTerms: "You have to agree to the Terms and conditions"})
-    }
-    else{
-      setErrors({...allErrors, agreeToTerms: ""})
+  function onAgreeToTerms(AgreeToTerms) {
+    setUserData({ ...userData, agreeToTerms: AgreeToTerms });
+    if (AgreeToTerms === false) {
+      setErrors({
+        ...allErrors,
+        agreeToTerms: "You have to agree to the Terms and conditions",
+      });
+    } else {
+      setErrors({ ...allErrors, agreeToTerms: "" });
     }
   }
 
-  function onSubmitClick(UserData){
-    alert("swa", UserData.agreeToTerms)
-  }
+  function onSubmitClick(UserData) {}
 
   return {
     allErrors,
     userData,
     validationFunctions,
-    onSubmitClick
+    onSubmitClick,
   };
 }

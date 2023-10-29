@@ -1,4 +1,4 @@
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook, act } from "@testing-library/react";
 import useRegistrationValidation from "./useRegistrationValidation";
 
 describe("useRegistrationValidation", () => {
@@ -71,7 +71,9 @@ describe("useRegistrationValidation", () => {
       validationFunctions.onDOBChange("");
     });
 
-    expect(result.current.allErrors.DateOfBirth).toBe("Please select Date of Birth");
+    expect(result.current.allErrors.DateOfBirth).toBe(
+      "Please select Date of Birth"
+    );
   });
 
   it("should handle Phone Number validation", () => {
@@ -89,14 +91,17 @@ describe("useRegistrationValidation", () => {
       validationFunctions.onPhoneNumberChange("");
     });
 
-    expect(result.current.allErrors.phoneNumber).toBe("Please Enter Phone Number");
+    expect(result.current.allErrors.phoneNumber).toBe(
+      "Please Enter Phone Number"
+    );
 
     act(() => {
       validationFunctions.onPhoneNumberChange("63846745");
     });
 
-    expect(result.current.allErrors.phoneNumber).toBe("Please Enter Valid Phone Number");
-
+    expect(result.current.allErrors.phoneNumber).toBe(
+      "Please Enter Valid Phone Number"
+    );
   });
 
   it("should handle Email validation", () => {
@@ -143,27 +148,33 @@ describe("useRegistrationValidation", () => {
   it("should handle Confirm Password validation", () => {
     const { result } = renderHook(() => useRegistrationValidation());
     const { validationFunctions } = result.current;
-  
+
     act(() => {
       validationFunctions.onConfirmPwdChange("password@123");
     });
-  
-    expect(result.current.allErrors.confirmPassword).toBe("Passwords does not match");
-  
+
+    expect(result.current.allErrors.confirmPassword).toBe(
+      "Passwords does not match"
+    );
+
     act(() => {
       validationFunctions.onConfirmPwdChange("");
     });
-  
-    expect(result.current.allErrors.confirmPassword).toBe("Please Enter Password");
-  
+
+    expect(result.current.allErrors.confirmPassword).toBe(
+      "Please Enter Password"
+    );
+
     act(() => {
       validationFunctions.onPasswordChange("password@123");
       validationFunctions.onConfirmPwdChange("password@1234");
     });
-  
-    expect(result.current.allErrors.confirmPassword).toBe("Passwords does not match");
+
+    expect(result.current.allErrors.confirmPassword).toBe(
+      "Passwords does not match"
+    );
   });
-  
+
   it("should handle Agree terms validation", () => {
     const { result } = renderHook(() => useRegistrationValidation());
     const { validationFunctions } = result.current;
@@ -179,9 +190,10 @@ describe("useRegistrationValidation", () => {
       validationFunctions.onAgreeToTerms(false);
     });
 
-    expect(result.current.allErrors.agreeToTerms).toBe("You have to agree to the Terms and conditions");
+    expect(result.current.allErrors.agreeToTerms).toBe(
+      "You have to agree to the Terms and conditions"
+    );
   });
-
 
   it("should handle form submission", () => {
     const { result } = renderHook(() => useRegistrationValidation());
@@ -199,6 +211,5 @@ describe("useRegistrationValidation", () => {
     act(() => {
       onSubmitClick(result.current.userData);
     });
-
   });
 });
