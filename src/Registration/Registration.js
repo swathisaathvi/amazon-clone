@@ -31,6 +31,7 @@ const Registration = () => {
                             type="text"
                             name="name"
                             placeholder="Enter Name"
+                            data-testid="name"
                             onChange={(event) => validationFunctions.onNameChange(event.target?.value)}
                             value={userData.name}
                         />
@@ -42,7 +43,8 @@ const Registration = () => {
                         </label>
                         <Select
                             name="gender"
-                            onChange={(event) => validationFunctions.onGenderChange(event.target.value)}
+                            data-testid="gender"
+                            onChange={(event) => validationFunctions.onGenderChange(event.target?.value)}
                             value={userData.gender}
                         >
                             <option value="" disabled>Choose an option</option>
@@ -57,6 +59,7 @@ const Registration = () => {
                         <Inputitem
                             type="date"
                             name="dob"
+                            data-testid="dob"
                             onChange={(event) => validationFunctions.onDOBChange(event.target?.value)}
                             value={userData.dob}
                         />
@@ -66,6 +69,7 @@ const Registration = () => {
                         <Inputitem
                             type="number"
                             name="phoneNumber"
+                            data-testid="phoneNumber"
                             placeholder="Enter Phone Number"
                             onChange={(event) => validationFunctions.onPhoneNumberChange(event.target?.value)}
                             value={userData.phoneNumber}
@@ -77,6 +81,7 @@ const Registration = () => {
                         <Inputitem
                             type="text"
                             name="email"
+                            data-testid="email"
                             placeholder="Enter Email"
                             onChange={(event) => validationFunctions.onEmailChange(event.target?.value)}
                             value={userData.email}
@@ -88,6 +93,7 @@ const Registration = () => {
                         <Inputitem
                             type="password"
                             name="password"
+                            data-testid="password"
                             placeholder="Enter Password"
                             onChange={(event) => validationFunctions.onPasswordChange(event.target?.value)}
                             value={userData.password}
@@ -99,6 +105,7 @@ const Registration = () => {
                         <Inputitem
                             type="password"
                             name="confirmPassword"
+                            data-testid="confirmPassword"
                             placeholder="Confirm Password"
                             onChange={(event) => validationFunctions.onConfirmPwdChange(event.target?.value)}
                             value={userData.confirmPassword}
@@ -112,8 +119,9 @@ const Registration = () => {
                             type="radio"
                             id="yes"
                             name="newsletter"
-                            checked={userData.newsletter === "Yes"} // Check if newsletter is "Yes"
-                            value="Yes" // Set the value to "Yes"
+                            data-testid="newsletterYes"
+                            checked={userData.newsletter === "Yes"} 
+                            value="Yes"
                             onChange={(event) => validationFunctions.onSubNewsLtrChange(event.target.value)}
                         />
                             <label htmlFor="yes">Yes</label>
@@ -122,9 +130,10 @@ const Registration = () => {
                             <input
                             type="radio"
                             id="no"
-                            name="newsletter"
-                            checked={userData.newsletter === "No"} // Check if newsletter is "No"
-                            value="No" // Set the value to "No"
+                            name="newsletterNo"
+                            data-testid="newsletterNo"
+                            checked={userData.newsletter === "No"} 
+                            value="No" 
                             onChange={(event) => validationFunctions.onSubNewsLtrChange(event.target.value)}
                         />
                             <label htmlFor="no">No</label>
@@ -135,6 +144,7 @@ const Registration = () => {
                         <input
                             type="checkbox"
                             name="agreeToTerms"
+                            data-testid="agreeToTerms"
                             checked={userData.agreeToTerms}
                             onChange={(event) => validationFunctions.onAgreeToTerms(event.target?.checked)}
                             value={userData.agreeToTerms}

@@ -4,7 +4,7 @@ import { useStateValue } from "./StateProvider";
 
 function CheckoutProduct(props) {
     
-    const [{ basket }, dispatch] = useStateValue();
+    const [dispatch] = useStateValue();
     const removeFromBasket = () => {
         dispatch({
             type: 'REMOVE_FROM_BASKET',
@@ -27,7 +27,7 @@ function CheckoutProduct(props) {
                     Array(props.rating)
                     .fill()
                     .map((_, i) => (
-                        <p>⭐</p>
+                        <p key={i}>⭐</p>
                     ))}   
                 </div>
                 <button onClick={()=>removeFromBasket()} >Remove From Basket</button>

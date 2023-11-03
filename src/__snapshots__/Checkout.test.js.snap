@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`performs Checkout page snapshot testing 1`] = `
+<DocumentFragment>
+  <div
+    class="checkout"
+  >
+    <div
+      class="checkout__left"
+    >
+      <img
+        alt=""
+        class="checkout__ad"
+        src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
+      />
+      <div
+        class="checkout__title"
+      >
+        <h2>
+          Your Shopping Basket
+        </h2>
+        <div
+          class="checkoutProduct"
+        >
+          <img
+            alt=""
+            class="checkoutProduct__image"
+            src="item1.jpg"
+          />
+          <div
+            class="checkoutProduct__info"
+          >
+            <p
+              class="checkoutProduct__title"
+            >
+              Item 1
+            </p>
+            <p
+              class="checkoutProduct__price"
+            >
+              <small>
+                $
+              </small>
+              <strong>
+                10
+              </strong>
+            </p>
+            <div
+              class="checkoutProduct__rating"
+            >
+              <p>
+                ⭐
+              </p>
+              <p>
+                ⭐
+              </p>
+              <p>
+                ⭐
+              </p>
+              <p>
+                ⭐
+              </p>
+            </div>
+            <button>
+              Remove From Basket
+            </button>
+          </div>
+        </div>
+        <div
+          class="checkoutProduct"
+        >
+          <img
+            alt=""
+            class="checkoutProduct__image"
+            src="item2.jpg"
+          />
+          <div
+            class="checkoutProduct__info"
+          >
+            <p
+              class="checkoutProduct__title"
+            >
+              Item 2
+            </p>
+            <p
+              class="checkoutProduct__price"
+            >
+              <small>
+                $
+              </small>
+              <strong>
+                15
+              </strong>
+            </p>
+            <div
+              class="checkoutProduct__rating"
+            >
+              <p>
+                ⭐
+              </p>
+              <p>
+                ⭐
+              </p>
+              <p>
+                ⭐
+              </p>
+              <p>
+                ⭐
+              </p>
+              <p>
+                ⭐
+              </p>
+            </div>
+            <button>
+              Remove From Basket
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="checkout__right"
+    >
+      <div
+        class="subtotal"
+      >
+        <p>
+          Subtotal (2 items) : 
+          <strong>
+            $25
+          </strong>
+        </p>
+        <small
+          class="subtotal__gift"
+        >
+          <input
+            type="checkbox"
+          />
+           This order contains the gift service
+        </small>
+        <button>
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

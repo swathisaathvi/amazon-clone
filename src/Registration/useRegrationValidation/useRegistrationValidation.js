@@ -23,12 +23,8 @@ export default function useRegistrationValidation() {
     onPasswordChange,
     onConfirmPwdChange,
     onSubNewsLtrChange,
-    onAgreeToTerms,
+    onAgreeToTerms
   };
-
-  // useEffect(() => {
-  //   onNameChange("");
-  // }, []);
 
   function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
