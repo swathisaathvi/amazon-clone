@@ -2,9 +2,7 @@ import React from "react";
 import {
   render,
   screen,
-  fireEvent,
-  act,
-  renderHook,
+  fireEvent
 } from "@testing-library/react";
 import Registration from "./Registration";
 import "@testing-library/jest-dom";
@@ -22,7 +20,7 @@ describe("Registration Component", () => {
       const nameInput = screen.getByTestId("name");
 
       fireEvent.change(nameInput, { target: { value: "" } });
-      expect(screen.findByText('Please Enter Username')).toBeTruthy();
+      expect(screen.findByText('Please Enter Username')).toBeInTheDocument;
 
       fireEvent.change(nameInput, { target: { value: "John" } });
       expect(screen.findByText('Please Enter Username')).not.toBeInTheDocument;
@@ -35,7 +33,7 @@ describe("Registration Component", () => {
     const genderInput = screen.getByTestId("gender");
 
     fireEvent.change(genderInput, { target: { value: "" } });
-    expect(screen.findByText("Please select Gender")).toBeTruthy();
+    expect(screen.findByText("Please select Gender")).toBeInTheDocument;
 
     fireEvent.change(genderInput, { target: { value: "Male" } });
     expect(screen.findByText("Please select Gender")).not.toBeInTheDocument;
@@ -114,15 +112,13 @@ describe("Registration Component", () => {
 
     const confirmPwdInput = screen.getByTestId("confirmPassword");
     fireEvent.change(confirmPwdInput, { target: { value: "" } });
-    expect(screen.findByText('Please Enter Password"')).toBeTruthy();
+    expect(screen.findByText('Please Enter Password"')).toBeInTheDocument;
 
     fireEvent.change(confirmPwdInput, { target: { value: "sdgsdgd" } });
-    expect(screen.findByText('Passwords does not match"')).toBeTruthy();
+    expect(screen.findByText('Passwords does not match"')).toBeInTheDocument;
 
-    fireEvent.change(passwordInput, { target: { value: "sdgdg" } });
-    expect(screen.findByText("Please Enter Password")).not.toBeInTheDocument;
-    expect(screen.findByText('Passwords does not match"')).not
-      .toBeInTheDocument;
+    fireEvent.change(confirmPwdInput, { target: { value: "sdgdg" } });
+    expect(screen.findByText("Passwords does not match")).not.toBeInTheDocument;
   });
 
   it("validate the news letter input", async () => {
@@ -162,10 +158,6 @@ describe("Registration Component", () => {
     fireEvent.change(nameInput, { target: { value: "John" } });
     const genderInput = screen.getByTestId("gender");
     fireEvent.change(genderInput, {target: {value: "Male"}})
-    fireEvent.change(genderInput, { target: { value: "" } });
-    expect(screen.findByText("Please select Gender")).toBeInTheDocument;
-    fireEvent.change(genderInput, { target: { value: "Male" } });
-    expect(screen.findByText("Please select Gender")).not.toBeInTheDocument;
     const dobInput = screen.getByTestId('dob');
     fireEvent.change(dobInput, { target: { value: "2022-12-10" } });
     const phoneInput = screen.getByTestId('phoneNumber');
@@ -180,48 +172,7 @@ describe("Registration Component", () => {
     fireEvent.click(newsletterYes);
     const agreeTermsInput = screen.getByTestId("agreeToTerms");
     fireEvent.click(agreeTermsInput);
-    // expect(registerButton).not.toBeDisabled();
-    // fireEvent.click(registerButton);
+    //expect(registerButton).not.toBeDisabled();
+    //fireEvent.click(registerButton);
   });
-
-  // it("validate Submit button Click", async () => {
-  //   render(<Registration />);
-  //   const registerButton = screen.getByText("Register");
-
-  //   // Initially, the button should be disabled
-  //   expect(registerButton).toBeDisabled();
-
-  //   const nameInput = screen.getByTestId("name");
-  //   fireEvent.change(nameInput, { target: { value: "John" } });
-
-  //   const genderInput = screen.getByTestId("gender");
-  //   fireEvent.change(genderInput, { target: { value: "Male" } });
-
-  //   const dobInput = screen.getByTestId("dob");
-  //   fireEvent.change(dobInput, { target: { value: "2022-12-10" } });
-
-  //   const phoneInput = screen.getByTestId("phoneNumber");
-  //   fireEvent.change(phoneInput, { target: { value: "0123456789" } });
-
-  //   const emailInput = screen.getByTestId("email");
-  //   fireEvent.change(emailInput, { target: { value: "sw@email.com" } });
-
-  //   const passwordInput = screen.getByTestId("password");
-  //   fireEvent.change(passwordInput, { target: { value: "ss35d" } });
-
-  //   const confirmPwdInput = screen.getByTestId("confirmPassword");
-  //   fireEvent.change(confirmPwdInput, { target: { value: "ss35d" } });
-
-  //   const newsletterYes = screen.getByTestId("newsletterYes");
-  //   fireEvent.click(newsletterYes);
-
-  //   const agreeTermsInput = screen.getByTestId("agreeToTerms");
-  //   fireEvent.click(agreeTermsInput);
-
-  //   // Now, the button should be enabled
-  //   //expect(registerButton).not.toBeDisabled();
-
-  //   // Simulate the click on the "Register" button
-  //   fireEvent.click(registerButton);
-  // });
 });

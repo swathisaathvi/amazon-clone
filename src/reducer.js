@@ -1,5 +1,3 @@
-import { act } from "react-dom/test-utils";
-
 export const initialState={
     basket: [
 ],
@@ -18,7 +16,6 @@ const reducer = (state, action) => {
                 ...state,
                 basket: [...state.basket, action.item]
             }
-            break;
         case 'REMOVE_FROM_BASKET':
         //Logic for removing item from basket
             let newBasket = [...state.basket];
@@ -28,7 +25,6 @@ const reducer = (state, action) => {
             }
             return {...state, 
                 basket: newBasket}
-            break;
         default:
             return state; 
     }

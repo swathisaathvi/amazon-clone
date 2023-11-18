@@ -65,13 +65,13 @@ describe("useRegistrationValidation", () => {
     });
 
     expect(result.current.userData.dob).toBe("2023-10-11");
-    expect(result.current.allErrors.DateOfBirth).toBe("");
+    expect(result.current.allErrors.dob).toBe("");
 
     act(() => {
       validationFunctions.onDOBChange("");
     });
 
-    expect(result.current.allErrors.DateOfBirth).toBe(
+    expect(result.current.allErrors.dob).toBe(
       "Please select Date of Birth"
     );
   });

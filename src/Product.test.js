@@ -18,7 +18,7 @@ test("renders Product Component", () => {
   const dispatch = jest.fn(); // Mock the dispatch function
 
   // Mock the useStateValue hook to return the dispatch function
-  require("./StateProvider").useStateValue.mockReturnValue([dispatch]);
+  require("./StateProvider").useStateValue.mockReturnValue([{},dispatch]);
   render(<Product {...product} />);
 
   // Check if the product details are rendered

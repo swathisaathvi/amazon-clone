@@ -23,8 +23,8 @@ test("performs Checkout page snapshot testing", () => {
   expect(screen.getByText("Item 1")).toBeInTheDocument;
   expect(screen.getByText("Item 2")).toBeInTheDocument;
   
-  //const remFromBsktBtn = screen.getAllByText("Remove From Basket");
-  //fireEvent.click(remFromBsktBtn[1]);
+  const remFromBsktBtn = screen.getAllByText("Remove From Basket");
+  fireEvent.click(remFromBsktBtn[1]);
 
   expect(asFragment()).toMatchSnapshot();
 });

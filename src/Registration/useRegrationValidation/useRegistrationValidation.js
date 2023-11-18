@@ -51,9 +51,9 @@ export default function useRegistrationValidation() {
   function onDOBChange(DateOfBirth) {
     setUserData({ ...userData, dob: DateOfBirth });
     if (DateOfBirth.length === 0) {
-      setErrors({ ...allErrors, DateOfBirth: "Please select Date of Birth" });
+      setErrors({ ...allErrors, dob: "Please select Date of Birth" });
     } else {
-      setErrors({ ...allErrors, DateOfBirth: "" });
+      setErrors({ ...allErrors, dob: "" });
     }
   }
 
@@ -108,7 +108,7 @@ export default function useRegistrationValidation() {
 
   function onAgreeToTerms(AgreeToTerms) {
     setUserData({ ...userData, agreeToTerms: AgreeToTerms });
-    if (AgreeToTerms === false) {
+    if (!AgreeToTerms) {
       setErrors({
         ...allErrors,
         agreeToTerms: "You have to agree to the Terms and conditions",
@@ -118,7 +118,9 @@ export default function useRegistrationValidation() {
     }
   }
 
-  function onSubmitClick(UserData) {}
+  function onSubmitClick(UserData) {
+    console.log(userData)
+  }
 
   return {
     allErrors,

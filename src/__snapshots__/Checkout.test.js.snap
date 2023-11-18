@@ -66,56 +66,6 @@ exports[`performs Checkout page snapshot testing 1`] = `
             </button>
           </div>
         </div>
-        <div
-          class="checkoutProduct"
-        >
-          <img
-            alt=""
-            class="checkoutProduct__image"
-            src="item2.jpg"
-          />
-          <div
-            class="checkoutProduct__info"
-          >
-            <p
-              class="checkoutProduct__title"
-            >
-              Item 2
-            </p>
-            <p
-              class="checkoutProduct__price"
-            >
-              <small>
-                $
-              </small>
-              <strong>
-                15
-              </strong>
-            </p>
-            <div
-              class="checkoutProduct__rating"
-            >
-              <p>
-                ⭐
-              </p>
-              <p>
-                ⭐
-              </p>
-              <p>
-                ⭐
-              </p>
-              <p>
-                ⭐
-              </p>
-              <p>
-                ⭐
-              </p>
-            </div>
-            <button>
-              Remove From Basket
-            </button>
-          </div>
-        </div>
       </div>
     </div>
     <div
@@ -124,10 +74,12 @@ exports[`performs Checkout page snapshot testing 1`] = `
       <div
         class="subtotal"
       >
-        <p>
-          Subtotal (2 items) : 
+        <p
+          data-testid="subtotal"
+        >
+          Subtotal (1 items) : 
           <strong>
-            $25
+            $10
           </strong>
         </p>
         <small
